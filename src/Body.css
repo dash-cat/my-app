@@ -1,0 +1,41 @@
+.item {
+
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 268px;
+    height: 332px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 12px;
+    flex: none;
+
+}
+.body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+}
+.prev {
+    height: 180px;
+    width: 237px;
+}
+.btn { 
+    box-sizing: border-box;
+    height: 25px;
+    width: 80px;
+    border: 2px solid ;
+    border-radius: 25%;
+} 
+.add {
+    border: 2px solid green;
+    background-color: aquamarine;
+}
+.del {
+    border: 2px solid red;
+    background-color: antiquewhite;
+}
+.count {
+    display: flex;
+}

@@ -13,20 +13,25 @@ class Stars extends React.Component {
     }
     private myRef = React.createRef<HTMLCanvasElement>();
     componentDidMount() {
-      const canvasik = this.myRef?.current
-      var ctx = canvasik?.getContext("2d");
-      function rand () { return Math.random() * 10000}
-        if (!ctx) { return }
-        ctx.fillStyle = "rgb(0,0,0)";
-        if (!canvasik) { return }
-        ctx.fillRect (0, 0, canvasik.width, canvasik.height);
-        for (let i = 0; i < 100; i ++) {
+      const self = this;
+      function animation () {
+        const canvasik = self.myRef?.current
+        var ctx = canvasik?.getContext("2d");
+        function rand () { return Math.random() * 10000}
+          if (!ctx) { return }
+           ctx.fillStyle = "rgb(0,0,0)";
+          if (!canvasik) { return }
+           ctx.fillRect (0, 0, canvasik.width, canvasik.height);
+          for (let i = 0; i < 10; i ++) {
             ctx.fillStyle = "rgba(255, 255, 255, 1)";
-        ctx.fillRect (rand(), rand(), 75, 20);
+            ctx.fillRect (rand(), rand(), rand() / 100, rand() / 100);
 
-        ctx.fillStyle = "rgba(255, 255, 255, 1)";
-        ctx.fillRect (rand(), rand(), 25, 16);
+            ctx.fillStyle = "rgba(255, 255, 255, 1)";
+            ctx.fillRect (rand(), rand(), 25, 16);
         }
+        requestAnimationFrame(animation)
+      }
+      animation()
         
     }
     render() {

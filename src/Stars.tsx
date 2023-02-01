@@ -1,6 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './Stars.css'
 
 // function Stars() {
 //   return (
@@ -16,22 +15,22 @@ class Stars extends React.Component {
     componentDidMount() {
       const canvasik = this.myRef?.current
       var ctx = canvasik?.getContext("2d");
-      function rand () { return Math.random() * 100}
+      function rand () { return Math.random() * 10000}
         if (!ctx) { return }
         ctx.fillStyle = "rgb(0,0,0)";
         if (!canvasik) { return }
         ctx.fillRect (0, 0, canvasik.width, canvasik.height);
         for (let i = 0; i < 100; i ++) {
             ctx.fillStyle = "rgba(255, 255, 255, 1)";
-        ctx.fillRect (rand(), rand(), 2, 1);
+        ctx.fillRect (rand(), rand(), 75, 20);
 
         ctx.fillStyle = "rgba(255, 255, 255, 1)";
-        ctx.fillRect (rand(), rand(), 3, 1);
+        ctx.fillRect (rand(), rand(), 25, 16);
         }
         
     }
     render() {
-      return <canvas id="tutorial" width="150" height="150" ref={this.myRef} />;
+      return <canvas className='starina' id="tutorial" width="10000" height="10000" ref={this.myRef} />;
     }
   }
 

@@ -2,14 +2,14 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import './Body.css'
-
+import Mandelbrot from './Mandelbrot'
 
 function Body() {
   return (
     <div className="body">
        <div className='item'> Item 
        <div>
-        <img className='prev' src="./img/Rectangle.png" />
+       <Mandelbrot></Mandelbrot>
        </div>
        <div>Description
         <span>  price 0,23$</span>

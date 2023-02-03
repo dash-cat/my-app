@@ -1,4 +1,5 @@
 import React from 'react';
+import { setTextRange } from 'typescript';
 import './Stars.css'
 
 // function Stars() {
@@ -22,16 +23,20 @@ class Stars extends React.Component {
       const self = this;
       const stars: Star[] = []
       function rand () { return Math.random() * 10000}
+      let timer = performance.now()
       function animation () {
         const canvasik = self.myRef?.current
         var ctx = canvasik?.getContext("2d");
-        if (!ctx) { return }
+        if (!ctx || !canvasik) { return }
+        timer = performance.now()
+        ctx.resetTransform()
+        ctx.rotate(timer)
         ctx.fillStyle = "rgb(0,0,0)";
-        if (!canvasik) { return }
         ctx.fillRect (0, 0, canvasik.width, canvasik.height);
         for (let star of stars) {
           ctx.fillStyle = star.fillStyle
           ctx.fillRect (...star.rect)
+          
         }
         requestAnimationFrame(animation)
       }
